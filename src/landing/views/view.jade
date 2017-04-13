@@ -1,2 +1,16 @@
-h1 Hello!
-pre {{ users|json }}
+h1.title Users
+ul.userList
+    li.userList__wrapper(ng-repeat="user in users")
+        div.userList__item
+            span.userList__item_avatar {{ user.initials }}
+            div.userList__item_infos
+                p.userList__item_name {{ user.username }}
+                p.userList__item_roles Roles: {{ user.displayedRoles }}
+            button.userList__item_cta(ng-click="toggleEdition($index)") edit
+        form.userList__form(ng-switch="user.isOpen")
+            label(for="username") username
+                input#username(value="{{ user.username }}")
+            label roles
+                div(ng-repeat="role in allRoles")
+                    label(for="cb_{{ $index }}") {{ role }}
+                    input(id="cb_{{ $index }}", type="checkbox", checked="{{ isActive(user, role) }}")

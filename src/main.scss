@@ -14,3 +14,12 @@ $text-color: #4C4C4C !default;
 $dark-color: #000000 !default;
 $emphasis-color: #f3c642 !default;
 $secondary-emphasis-color: #e78352 !default;
+
+.title {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.userList__item_avatar {
+  text-transform: uppercase;
+}
